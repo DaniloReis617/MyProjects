@@ -1,8 +1,21 @@
-# :earth_americas: GDP dashboard template
+## Estrutura do Projeto
 
-A simple Streamlit app showing the GDP of different countries in the world.
+project_management_app/
+│
+├── app.py
+├── pages/
+│   ├── login.py
+│   ├── register.py
+│   ├── dashboard.py
+│   ├── kanban.py
+│   ├── table.py
+│   ├── create.py
+│   ├── edit.py
+│   └── delete.py
+└── utils/
+    ├── auth.py
+    └── db.py
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://gdp-dashboard-template.streamlit.app/)
 
 ### How to run it on your own machine
 
@@ -15,5 +28,5 @@ A simple Streamlit app showing the GDP of different countries in the world.
 2. Run the app
 
    ```
-   $ streamlit run streamlit_app.py
+   $ streamlit run app.py
    ```
