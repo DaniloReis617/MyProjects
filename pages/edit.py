@@ -32,7 +32,7 @@ def show():
     task = tasks_df[tasks_df["task_id"] == task_id].iloc
     
     task_name = st.text_input("Nome da Tarefa", value=task["task_name"])
-    project_id = st.number_input("ID do Projeto", min_value=1, value=task["project_id"])
+    project_id = st.number_input("ID do Projeto", min_value=1, value=int(task["project_id"]))
     assigned_to = st.text_input("Atribuído a", value=task["assigned_to"])
     status = st.selectbox("Status", ["To Do", "In Progress", "Done"], index=["To Do", "In Progress", "Done"].index(task["status"]))
     due_date = st.date_input("Data de Vencimento", value=pd.to_datetime(task["due_date"]))

@@ -41,6 +41,7 @@ def main():
     if "logged_in" not in st.session_state:
         st.session_state.logged_in = False
         st.session_state.user_email = ""
+        st.session_state.current_page = "Login"
 
     if st.session_state.logged_in:
         st.sidebar.title(f"Bem-vindo, {st.session_state.user_email}")
@@ -50,7 +51,7 @@ def main():
                 if st.sidebar.button(PAGES[page]["title"], key=page):
                     st.session_state.current_page = page
     else:
-        st.session_state.current_page = "Login"
+        st.sidebar.title("Por favor, faça login")
 
     page_module = load_page(PAGES[st.session_state.current_page]["module"])
     if page_module and hasattr(page_module, 'show'):

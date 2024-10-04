@@ -17,6 +17,7 @@ def show():
             if authenticate_user(email, password):
                 st.session_state.logged_in = True
                 st.session_state.user_email = email
+                st.session_state.current_page = "Dashboard"
                 st.success("Login realizado com sucesso!")
                 st.rerun()
             else:
