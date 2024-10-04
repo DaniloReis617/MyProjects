@@ -12,10 +12,11 @@ project_management_app/
 │   ├── create.py
 │   ├── edit.py
 │   └── delete.py
-└── utils/
-    ├── auth.py
-    └── db.py
-
+├── utils/
+│    ├── auth.py
+│    └── db.py
+│
+└── Data/
 
 ### How to run it on your own machine
 

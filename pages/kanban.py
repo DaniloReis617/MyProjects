@@ -1,23 +1,17 @@
 import streamlit as st
-from streamlit_elements import elements, dashboard, mui
+from utils.db import read_parquet
 
-st.set_page_config(layout="wide")
-
-if 'tasks' not in st.session_state:
-    st.session_state.tasks = [
-        {"id": 1, "title": "Tarefa 1", "status": "To Do"},
-        {"id": 2, "title": "Tarefa 2", "status": "In Progress"},
-        {"id": 3, "title": "Tarefa 3", "status": "Done"}
-    ]
-
-def render_kanban():
-    with elements("kanban"):
-        with dashboard.Grid():
-            for task in st.session_state.tasks:
-                with mui.Card(key=task["id"]):
-                    mui.CardHeader(title=task["title"])
-                    mui.CardContent(task["status"])
+def show():
+    st.title("Kanban")
+    
+    tasks_df = read_parquet("tasks")
+    
+    status_options = tasks_df["status"].unique()
+    for status in status_options:
+        st.subheader(status)
+        tasks = tasks_df[tasks_df["status"] == status]
+        for _, task in tasks.iterrows():
+            st.write(f"**{task['task_name']}** - {task['assigned_to']} (Due: {task['due_date']})")
 
 if __name__ == "__main__":
-    st.title("Quadro Kanban")
-    render_kanban()
+    show()
