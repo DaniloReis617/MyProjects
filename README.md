@@ -1,22 +1,18 @@
-## Estrutura do Projeto
-
-project_management_app/
-│
-├── app.py
-├── pages/
-│   ├── login.py
-│   ├── register.py
-│   ├── dashboard.py
-│   ├── kanban.py
-│   ├── table.py
-│   ├── create.py
-│   ├── edit.py
-│   └── delete.py
-├── utils/
-│    ├── auth.py
-│    └── db.py
-│
-└── Data/
+# Estrutura de diretórios:
+# projeto_gestao/
+# ├── app.py
+# ├── database/
+# │   ├── __init__.py
+# │   └── db_operations.py
+# ├── pages/
+# │   ├── __init__.py
+# │   ├── home.py
+# │   ├── dashboard.py
+# │   ├── projects.py
+# │   └── add_project.py
+# └── utils/
+#     ├── __init__.py
+#     └── data_processing.py
 
 ### How to run it on your own machine
 

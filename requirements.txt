@@ -1,6 +1,5 @@
 streamlit
 pandas
-pyarrow
-streamlit-authenticator
-streamlit-elements
-streamlit-option-menu
+plotly
+
+
