@@ -1,5 +1,4 @@
 streamlit
 pandas
-plotly
-
-
+pyarrow  # ou fastparquet, dependendo da sua escolha
+matplotlib  # ou plotly para gráficos
