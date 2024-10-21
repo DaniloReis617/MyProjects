@@ -1,13 +1,22 @@
 import streamlit as st
-from database import load_projects, add_project, delete_project, edit_project
+from utils.auth_utils import load_projects, add_project, delete_project, edit_project
 import pandas as pd
+import uuid
 
-def crud_projects():
+def app():
     st.title("Lista de Projetos")
     
     # Exibir os projetos
     df = load_projects()
+
+    # Pegar o ID do usuário logado
+    user_id = st.session_state.get('user_id')
+
+    # Filtrar despesas e categorias do usuário logado
+    df = df[df['user_id'] == user_id]
+
     st.dataframe(df)
+
 
     # Adicionar novo projeto
     st.subheader("Adicionar novo projeto")
@@ -38,3 +47,5 @@ def crud_projects():
     if st.button("Deletar"):
         delete_project(project_index)
         st.success("Projeto deletado com sucesso!")
+
+
